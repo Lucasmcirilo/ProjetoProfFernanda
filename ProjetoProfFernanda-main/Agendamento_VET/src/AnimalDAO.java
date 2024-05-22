@@ -14,15 +14,16 @@ public class AnimalDAO {
         String sql = "INSERT INTO Animal(nome, tipo, raca) VALUES(Nome, Tipo, Raca)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1, t.getNome());
-            stmt.setString(2, t.getTipo());
-            stmt.setInt(3, t.getRaca());
+            stmt.setString(1, a.getNome());
+            stmt.setString(2, a.getTipo());
+            stmt.setString(3, a.getRaca());
             stmt.execute();
             stmt.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
     public ArrayList<Animal> listarAnimal() {
         ArrayList<Animal> animal = new ArrayList<>();
         String sql = "SELECT * FROM Animal";
