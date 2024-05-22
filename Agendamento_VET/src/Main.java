@@ -8,7 +8,8 @@ public class Main {
         System.out.println("0.Encerrar.");
         System.out.println("1.Cadastrar Tutor.");
         System.out.println("2.Listar Tutor.");
-
+        System.out.println("3.Cadastrar Animal.");
+        System.out.println("4.Listar Animal.");
 
         int menu = 1;
         while (menu == 1) {
@@ -36,6 +37,17 @@ public class Main {
                     c.listarTutores();
                     break;
                 case 3:
+                    Animal a1 = new Animal();
+                    System.out.println("Nome do Animal:");
+                    a1.setNome(sc.next());
+                    System.out.println("Tipo do Animal:");
+                    a1.setTipo(sc.next());
+                    System.out.println("Raça do Animal:");
+                    a1.setRaca(sc.next());
+                    c.cadastrarAnimal(a1);
+                    break;
+                case 4:
+                    c.listarAnimal();
                     break;
                 default:
                     System.out.println("Opção inválida.");
