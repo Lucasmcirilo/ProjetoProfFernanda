@@ -3,6 +3,8 @@ import java.util.ArrayList;
 public class Cadastro {
     private ArrayList<Tutor> tutores = new ArrayList<>();
     private ArrayList<Animal> animals = new ArrayList<>();
+    private ArrayList<Agendamento> agendamentos = new ArrayList<>();
+
 
     public void listarTutores() {
         for (Tutor t : tutores) {
@@ -29,6 +31,19 @@ public class Cadastro {
     public void cadastrarAnimal(Animal a) {
         animals.add(a);
         System.out.println("Animal cadastrado.");
+    }
+
+    public void listarAgendamento() {
+        for (Agendamento ag : agendamentos) {
+
+
+
+        }
+    }
+
+    public void cadastrarAgendamento(Agendamento ag) {
+        agendamentos.add(ag);
+        System.out.println("Agendamento concluído.");
     }
 
 }

@@ -5,14 +5,16 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Cadastro c = new Cadastro();
 
-        System.out.println("0.Encerrar.");
-        System.out.println("1.Cadastrar Tutor.");
-        System.out.println("2.Listar Tutor.");
-        System.out.println("3.Cadastrar Animal.");
-        System.out.println("4.Listar Animal.");
-
         int menu = 1;
         while (menu == 1) {
+
+            System.out.println("0.Encerrar.");
+            System.out.println("1.Cadastrar Tutor.");
+            System.out.println("2.Listar Tutor.");
+            System.out.println("3.Cadastrar Animal.");
+            System.out.println("4.Listar Animal.");
+            System.out.println("5.Gerar Serviço.");
+
             int smenu;
             smenu = sc.nextInt();
             switch (smenu) {
@@ -49,11 +51,23 @@ public class Main {
                 case 4:
                     c.listarAnimal();
                     break;
+                case 5:
+                    Agendamento ag1 = new Agendamento();
+                    System.out.println("Tipo de Agendamento:");
+                    ag1.setTipo(sc.next());
+                    System.out.println("Dia da consulta:");
+                    ag1.setDataHora(sc.nextInt());
+                    System.out.println("Médico:");
+                    ag1.setMedico(sc.next());
+                    System.out.println("Status:");
+                    ag1.setStatus(sc.next());
+                    c.cadastrarAgendamento(ag1);
+                    break;
                 default:
                     System.out.println("Opção inválida.");
                     break;
-            }
 
+            }
 
         }
     }

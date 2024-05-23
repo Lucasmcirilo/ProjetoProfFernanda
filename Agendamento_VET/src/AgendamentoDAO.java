@@ -15,7 +15,7 @@ public class AgendamentoDAO {
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, ag.getTipo());
-            stmt.setInt(2, ag.getData-hora());
+            stmt.setInt(2, ag.getDataHora());
             stmt.setString(3, ag.getMedico());
             stmt.setString(4, ag.getStatus());
             stmt.execute();
@@ -35,7 +35,7 @@ public class AgendamentoDAO {
                 Agendamento ag = new Agendamento();
                 ag.setIdAg(rs.getInt("idAg"));
                 ag.setTipo(rs.getString("Tipo"));
-                ag.setData-hora(rs.getInt("Data-hora"));
+                ag.setDataHora(rs.getInt("Data-hora"));
                 ag.setMedico(rs.getString("Medico"));
                 ag.setStatus(rs.getString("Status"));
                 agendamento.add(ag);
