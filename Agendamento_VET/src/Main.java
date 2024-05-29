@@ -5,18 +5,16 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Cadastro c = new Cadastro();
 
+        OpcaoMenu[] opcoes = OpcaoMenu.values();
         int menu = 1;
+
         while (menu == 1) {
+            System.out.println("Escolha uma opção:");
+            for (OpcaoMenu opcao : opcoes) {
+                System.out.println(opcao.getCodigo() + ". " + opcao.getDescricao());
+            }
 
-            System.out.println("0.Encerrar.");
-            System.out.println("1.Cadastrar Tutor.");
-            System.out.println("2.Listar Tutor.");
-            System.out.println("3.Cadastrar Animal.");
-            System.out.println("4.Listar Animal.");
-            System.out.println("5.Gerar Serviço.");
-
-            int smenu;
-            smenu = sc.nextInt();
+            int smenu = sc.nextInt();
             switch (smenu) {
                 case 0:
                     System.out.println("Encerrando.");
@@ -33,10 +31,10 @@ public class Main {
                     System.out.println("Telefone:");
                     t1.setTelefone(sc.next());
                     System.out.println("Cadastrando...");
-                    c.cadastrarTutor(t1);
+                    c.cadastrarTutor_banco(t1);
                     break;
                 case 2:
-                    c.listarTutores();
+                    c.listarTutor_banco();
                     break;
                 case 3:
                     Animal a1 = new Animal();
@@ -46,10 +44,10 @@ public class Main {
                     a1.setTipo(sc.next());
                     System.out.println("Raça do Animal:");
                     a1.setRaca(sc.next());
-                    c.cadastrarAnimal(a1);
+                    c.cadastrarAnimal_banco(a1);
                     break;
                 case 4:
-                    c.listarAnimal();
+                    c.listarAnimal_banco();
                     break;
                 case 5:
                     Agendamento ag1 = new Agendamento();
@@ -66,9 +64,7 @@ public class Main {
                 default:
                     System.out.println("Opção inválida.");
                     break;
-
             }
-
         }
     }
 }

@@ -1,11 +1,49 @@
 import java.util.ArrayList;
 
 public class Cadastro {
+    // daos
+    private TutorDAO tutorDAO;
+    private AnimalDAO animalDAO;
+    private AgendamentoDAO agendamentoDAO;
+
+    // arrays para teste casual
     private ArrayList<Tutor> tutores = new ArrayList<>();
     private ArrayList<Animal> animals = new ArrayList<>();
     private ArrayList<Agendamento> agendamentos = new ArrayList<>();
 
+    // cadastro com banco (dao)
+    public void cadastrarTutor_banco(Tutor t) {
+        tutorDAO.adiciona(t);
+        System.out.println("Tutor cadastrado com sucesso.");
+    }
+    public void listarTutor_banco() {
+        ArrayList<Tutor> tutors = tutorDAO.listarTutor();
+        for (Tutor t : tutors) {
+            System.out.println("Nome: " + t.getNome());
+            System.out.println("Idade: " + t.getIdade());
+            System.out.println("Email: " + t.getEmail());
+            System.out.println("Telefone: " + t.getTelefone());
+        }
+    }
 
+    public void cadastrarAnimal_banco(Animal a) {
+        animalDAO.adiciona(a);
+        System.out.println("Pet cadastrado com sucesso.");
+    }
+    public void listarAnimal_banco() {
+        ArrayList<Animal> animals1 = animalDAO.listarAnimal();
+        for (Animal a : animals1) {
+            System.out.println("Nome: " + a.getNome());
+            System.out.println("Raça: " + a.getRaca());
+            System.out.println("Tipo: " + a.getTipo());
+        }
+    }
+
+
+
+
+
+    // cadastro com arrays (casual)
     public void listarTutores() {
         for (Tutor t : tutores) {
             System.out.println("Nome: " + t.getNome());
