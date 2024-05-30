@@ -1,4 +1,4 @@
-import SQL.Conexao;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ public class AnimalDAO {
         this.connection = new Conexao().GeraConexao();
     }
     public void adiciona(Animal a) {
-        String sql = "INSERT INTO Animal(nome, tipo, raca) VALUES(Nome, Tipo, Raca)";
+        String sql = "INSERT INTO Animal(nome_animal, tipo_animal, raca) VALUES(?, ?, ?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, a.getNome());
@@ -32,9 +32,9 @@ public class AnimalDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Animal a = new Animal();
-                a.setIdA(rs.getInt("idA"));
-                a.setNome(rs.getString("nome"));
-                a.setTipo(rs.getString("tipo"));
+                a.setIdA(rs.getInt("id_Animal"));
+                a.setNome(rs.getString("nome_animal"));
+                a.setTipo(rs.getString("tipo_animal"));
                 a.setRaca(rs.getString("raca"));
                 animal.add(a);
             }

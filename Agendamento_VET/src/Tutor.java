@@ -1,5 +1,5 @@
 public class Tutor {
-    String nome, telefone, email;
+    String nome, telefone_tutor, email;
     int idade, idT;
 
     public int getIdT() {
@@ -34,11 +34,11 @@ public class Tutor {
         this.idade = idade;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTelefone_tutor() {
+        return telefone_tutor;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelefone_tutor(String telefone_tutor) {
+        this.telefone_tutor = telefone_tutor;
     }
 }

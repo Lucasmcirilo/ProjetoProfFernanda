@@ -1,4 +1,4 @@
-import SQL.Conexao;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ public class AgendamentoDAO {
         this.connection = new Conexao().GeraConexao();
     }
     public void adiciona(Agendamento ag) {
-        String sql = "INSERT INTO Agendamento(tipo-atendimento, data-hora, medico-responsavel, status-atendimento) VALUES(tipo, data-hora, medico, status,)";
+        String sql = "INSERT INTO Agendamento(tipo_atendimento, data_hora, medico_responsavel, status_atendimento) VALUES(?, ?, ?, ?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, ag.getTipo());
@@ -33,11 +33,11 @@ public class AgendamentoDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Agendamento ag = new Agendamento();
-                ag.setIdAg(rs.getInt("idAg"));
-                ag.setTipo(rs.getString("Tipo"));
-                ag.setDataHora(rs.getInt("Data-hora"));
-                ag.setMedico(rs.getString("Medico"));
-                ag.setStatus(rs.getString("Status"));
+                ag.setIdAg(rs.getInt("id_agendamento"));
+                ag.setTipo(rs.getString("Tipo_agendamento"));
+                ag.setDataHora(rs.getInt("Data_hora"));
+                ag.setMedico(rs.getString("Medico_responsavel"));
+                ag.setStatus(rs.getString("Status_agendamento"));
                 agendamento.add(ag);
             }
             rs.close();

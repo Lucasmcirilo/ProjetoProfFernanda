@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Cadastro {
     // daos
-    private TutorDAO tutorDAO;
-    private AnimalDAO animalDAO;
-    private AgendamentoDAO agendamentoDAO;
+    private TutorDAO tutorDAO = new TutorDAO();
+    private AnimalDAO animalDAO = new AnimalDAO();
+    private AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
 
     // arrays para teste casual
     private ArrayList<Tutor> tutores = new ArrayList<>();
@@ -22,7 +22,7 @@ public class Cadastro {
             System.out.println("Nome: " + t.getNome());
             System.out.println("Idade: " + t.getIdade());
             System.out.println("Email: " + t.getEmail());
-            System.out.println("Telefone: " + t.getTelefone());
+            System.out.println("Telefone: " + t.getTelefone_tutor());
         }
     }
 
@@ -46,10 +46,11 @@ public class Cadastro {
     // cadastro com arrays (casual)
     public void listarTutores() {
         for (Tutor t : tutores) {
+            System.out.println("idT: " + t.getIdT());
             System.out.println("Nome: " + t.getNome());
             System.out.println("Idade: " + t.getIdade());
             System.out.println("Email: " + t.getEmail());
-            System.out.println("Telefone: " + t.getTelefone());
+            System.out.println("Telefone: " + t.getTelefone_tutor());
         }
     }
 
@@ -83,5 +84,13 @@ public class Cadastro {
         agendamentos.add(ag);
         System.out.println("Agendamento concluído.");
     }
+
+    public Cadastro() {
+        this.tutorDAO = new TutorDAO();
+        this.animalDAO = new AnimalDAO();
+        this.agendamentoDAO = new AgendamentoDAO();
+
+    }
+
 
 }
